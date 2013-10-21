@@ -13,3 +13,10 @@ eg:
     3. I must go.
 
 """
+
+mystr = "Sorry,\nMy people need me\nI must go"
+
+tokens = mystr.split("\n")
+
+for i in range(len(tokens)):
+    print "%d. %s" % (i+1, tokens[i])

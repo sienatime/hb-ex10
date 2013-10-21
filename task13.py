@@ -1,55 +1,60 @@
 '''
 
 '''
-def mystery1(inp):
-    base = int(inp)
-    if inp - base >= 0.5:
+import math
+
+def round(decimal):
+    base = int(decimal)
+    if decimal - base >= 0.5:
         return base+1
     else:
         return base
     
-def mystery2(inp):
-    if not inp:
+def count_lines(lines):
+    if not lines:
         return 0
-    num = 1
-    for c in inp:
-        if c == "\n":
-           num  += 1    
-    return num
+    count = 1
+    for character in lines:
+        if character == "\n":
+           count  += 1    
+    return count
 
-def mystery3(a, b):
-    c = a * a + b * b
-    return Math.sqrt(c)
+def get_hypotenuse(side1, side2):
+    hypotenuse = side1 * side1 + side2 * side2
+    return math.sqrt(hypotenuse)
     
 
-def mystery4(inp):
-    size = len(inp)
-    for i in range(len(inp)/2):
-        temp = inp[i]
-        inp[i] = inp[size-i-1]
-        inp[size-i-1] = temp
+def reverse_list(l):
+    size = len(l)
+    for i in range(len(l)/2):
+        temp = l[i]
+        l[i] = l[size-i-1]
+        l[size-i-1] = temp
         
-    return inp
+    return l
     
-def mystery5():
+def count_letters():
     inp = open("sample_input.txt")
-    ws = inp.split()
-    h = dict()
-    for w in ws:
-        num = h.get(w, 0)
-        num += 1
-        h[w] = num
+    lines = inp.read()
+    letters = lines.split()
+    letter_count = dict()
+    for letter in letters:
+        existing_count = letter_count.get(letter, 0)
+        existing_count += 1
+        letter_count[letter] = existing_count
     
-    for k, v in h.iteritems():
-        print "%s:\t%d"%(k, v)
+    for letter, count in letter_count.iteritems():
+        print "%s:\t%d"%(letter, count)
 
-def mystery6(inp):
+def bubble_sort(l):
     swapped = True
     while swapped == True:
         swapped = False
-        for i in range(len(inp)-1):
-            if inp[i] > inp[i+1]:
-                tmp = inp[i]
-                inp[i] = inp[i+1]
-                inp[i+1] = inp[i]
+        for i in range(len(l)-1):
+            if l[i] > l[i+1]:
+                tmp = l[i]
+                l[i] = l[i+1]
+                l[i+1] = tmp
                 swapped = True
+
+    return l

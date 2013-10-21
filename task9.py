@@ -13,3 +13,9 @@ eg:
 """
 d1 = {"a": 5, "c": 7, "d": 9, "q": 15}
 d2 = {"a": 6, "e": 13, "g": 6, "q": 1}
+
+for d2key in d2.keys():
+    existing_val = d1.get(d2key, 0)
+    d1[d2key] = existing_val + d2[d2key]
+
+print d1
